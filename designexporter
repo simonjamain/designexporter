@@ -2,10 +2,12 @@
 # encoding: utf-8
 require 'optparse'
 require 'yaml'
-require_relative 'PluginLoader'
+require_relative 'plugin_loader.rb'
+require 'byebug'
 
 DEFAULT_CONFIG_FILENAME = 'config.yml'
 DEFAULT_CONFIG_PATH = __dir__
+DEFAULT_PLUGIN_PATH = File.join(__dir__, 'plugins')
 
 # gather input
 configurationFile = File.join(DEFAULT_CONFIG_PATH, DEFAULT_CONFIG_FILENAME)
@@ -24,6 +26,7 @@ optionParser = OptionParser.new do|options|
 end
 
 optionParser.parse!
+pluginLoader = PluginLoader.new(DEFAULT_PLUGIN_PATH)
 
 configuration = File.read configurationFile
 
@@ -46,8 +49,10 @@ YAML.load_stream(configuration) do |config|
       .each do |folder|
         # go inside selected folders
         Dir.chdir(folder) do
-
-
+          # execute each rules
+          config['rules'].each do |rule|
+            pluginLoader.call(rule['plugin'], rule['arguments'])
+          end
         end
       end
     end

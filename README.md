@@ -50,60 +50,26 @@ A **rule** defines an action that will be executed by a **plugin** with given **
 
 A set of **rules** is executed once for each folder present in a **root** folder matching a given regular expression (**folders**).
 
-Here is the structure of the main config file. The **options** value list is plugin-specific and it is defined in their ```plugin.yml``` file.
+Here is the structure of the main config file. The **arguments** value is plugin-specific.
 ```yaml
 root: ../../clients
 folders: ^(?!model client$).* # match all folders except the one nammed 'model client'
 rules:
     - plugin: pluginName
-      options:
-          - option1: value1
-          - optionN: valueN
+      arguments: arguments
     - plugin: pluginName
-      options:
-          - option1: value1
-          - optionN: valueN
+      arguments: arguments
 ---
 root: /var/curriculums
 folders: ^(?!model client$).* # match all folders except the one nammed 'model client'
 rules:
     plugin: pluginName
-    options:
-        - option1: value1
-        - optionN: valueN
+    arguments: arguments
 ```
 
 ## writing plugins
 
-A plugin is defined by a folder containing a ```plugin.yml``` file.
+A plugin is defined by a folder containing a ```main``` executable file.
 The **name** of the plugin is the name of its folder.
-
-It defines basic mandatory information :
- - a **description**;
- - a list of required plugins (**dependencies**);
- - a list of **options** needed by the plugin;
- - a **command** to be executed (options will be passed).
-
-eg :
-
-```yaml
-description: quick description
-dependencies:
- - plugin1 # plugin1 is needed to work
- - pluginN # pluginN is needed to work
-options:
- - option1 # option name
- - optionN # option name
-command: shell command to execute
-```
-
-Hence, the simplest plugin would be :
-
-```yaml
-dependencies: []
-description: A plugin to say hello to the world
-options: []
-command: echo "hello world"
-```
 
 And that's it.

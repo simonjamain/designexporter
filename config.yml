@@ -1,6 +1,7 @@
 root: ../../Clients
 folders: ^(?!ze client type$|DesignExporter$).* # match all folders except the one nammed 'model client'
 rules:
-    - plugin: businessCard
-      options:
-          - configDir: Graphisme/Carte de visite/Config
+    - plugin: test
+      arguments: Graphisme/Carte de visite/Config
+    - plugin: test
+      arguments: Graphisme/Carte de visite/Config2
