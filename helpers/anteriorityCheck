@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+require 'optparse'
+
+files = {}
+
+optionParser = OptionParser.new do|options|
+
+  options.banner = "Usage: anteriorityCheck [options]\nReturn 1 if specified anteriority is not met"
+
+  options.on('-o', '--old OLD_FILE', 'mandatory : specify which file should be older than the other' ) do |oldFile|
+    files[:old] = oldFile
+  end
+
+  options.on('-n', '--new OLD_FILE', 'mandatory : specify which file should be newer than the other' ) do |newFile|
+    files[:new] = newFile
+  end
+
+  options.on_tail( '-h', '--help', 'Display this screen' ) do
+    puts options
+    exit
+  end
+end
+
+optionParser.parse!
+
+raise OptionParser::MissingArgument if files[:old].nil?
+raise OptionParser::MissingArgument if files[:new].nil?
+
+exit 1 if File.mtime(files[:old]) > File.mtime(files[:new])

@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+require 'optparse'
+require 'yaml'
+require_relative 'PluginLoader'
+
+DEFAULT_CONFIG_FILENAME = 'config.yml'
+DEFAULT_CONFIG_PATH = __dir__
+
+# gather input
+configurationFile = File.join(DEFAULT_CONFIG_PATH, DEFAULT_CONFIG_FILENAME)
+
+optionParser = OptionParser.new do|options|
+
+  options.on('-c', '--config', 'Specify manually the path of the main config file') do |file|
+    configurationFile = file
+    exit
+  end
+
+  options.on_tail( '-h', '--help', 'Display this screen' ) do
+    optionHelp options
+    exit
+  end
+end
+
+optionParser.parse!
+
+configuration = File.read configurationFile
+
+# perform work
+# ---------------------
+def optionHelp(options)
+  puts options
+end
+# ---------------------
+
+YAML.load_stream(configuration) do |config|
+  # go to config file folder
+  Dir.chdir(File.dirname(configurationFile)) do
+    # go to root folder
+    Dir.chdir(config['root']) do
+      # get all folders which match
+      Dir.glob('*')
+      .select {|f| File.directory?(f)}
+      .select {|f| Regexp.new(config['folders']).match(f)}
+      .each do |folder|
+        # go inside selected folders
+        Dir.chdir(folder) do
+
+
+        end
+      end
+    end
+  end
+end
+
+# deliver results
