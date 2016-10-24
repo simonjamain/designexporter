@@ -1,0 +1,3 @@
+[submodule "plugins/businessCard"]
+	path = plugins/businessCard
+	url = git@github.com:simonjamain/designexporter-plugin-businesscard.git

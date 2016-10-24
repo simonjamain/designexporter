@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "path: $PWD \n argument 1 : $@"
