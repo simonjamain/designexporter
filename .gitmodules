@@ -4,3 +4,6 @@
 [submodule "plugins/multipage"]
 	path = plugins/multipage
 	url = git@github.com:simonjamain/designexporter-plugin-multipage.git
+[submodule "plugins/fonts"]
+	path = plugins/fonts
+	url = git@github.com:simonjamain/designexporter-plugin-fonts.git

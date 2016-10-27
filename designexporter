@@ -3,7 +3,6 @@
 require 'optparse'
 require 'yaml'
 require_relative 'plugin_loader.rb'
-require 'byebug'
 
 DEFAULT_CONFIG_FILENAME = 'config.yml'
 DEFAULT_CONFIG_PATH = __dir__
