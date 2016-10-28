@@ -49,6 +49,7 @@ YAML.load_stream(configuration) do |config|
         # go inside selected folders
         Dir.chdir(folder) do
           # execute each rules
+          puts "executing in #{folder}"
           config['rules'].each do |rule|
             pluginLoader.call(rule['plugin'], rule['arguments'])
           end

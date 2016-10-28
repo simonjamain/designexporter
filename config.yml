@@ -1,9 +1,17 @@
+# root: ../../Clients
+# folders: ^(?!ze client type$|DesignExporter$).* # match all folders except the one nammed 'model client'
+# rules:
+#     - plugin: fonts
+#       arguments: '"Kit de communication"/"Charte graphique"/Polices'
+#     - plugin: simplesvgexport
+#       arguments: Graphisme/configuration.yml
+#     - plugin: multipage
+#       arguments: Graphisme/configuration.yml
+#     - plugin: businessCard
+#       arguments: Graphisme/"Carte de visite"/identities.csv Graphisme/"Carte de visite"/Sources "Kit de communication"/Polices Graphisme/"Carte de visite"/"Fichiers pour impression"
+---
 root: ../../Clients
-folders: ^(?!ze client type$|DesignExporter$).* # match all folders except the one nammed 'model client'
+folders: ^Benèze$ # match all folders except the one nammed 'model client'
 rules:
-    - plugin: fonts
-      arguments: '"Kit de communication"/"Charte graphique"/Polices'
-    - plugin: multipage
+    - plugin: subsvgexport
       arguments: Graphisme/configuration.yml
-    - plugin: businessCard
-      arguments: Graphisme/"Carte de visite"/identities.csv Graphisme/"Carte de visite"/Sources "Kit de communication"/Polices Graphisme/"Carte de visite"/"Fichiers pour impression"

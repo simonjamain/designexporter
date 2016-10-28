@@ -7,3 +7,9 @@
 [submodule "plugins/fonts"]
 	path = plugins/fonts
 	url = git@github.com:simonjamain/designexporter-plugin-fonts.git
+[submodule "plugins/simplesvgexport"]
+	path = plugins/simplesvgexport
+	url = git@github.com:simonjamain/designexporter-plugin-simplesvgexport.git
+[submodule "plugins/subsvgexport"]
+	path = plugins/subsvgexport
+	url = git@github.com:simonjamain/designexporter-plugin-subsvgexport.git
