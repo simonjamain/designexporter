@@ -27,7 +27,7 @@ end
 optionParser.parse!
 pluginLoader = PluginLoader.new(DEFAULT_PLUGIN_PATH)
 
-configuration = File.read configurationFile
+configurations = YAML.load(File.read configurationFile)
 
 # perform work
 # ---------------------
@@ -36,7 +36,7 @@ def optionHelp(options)
 end
 # ---------------------
 
-YAML.load_stream(configuration) do |config|
+configurations.each do |config|
   # go to config file folder
   Dir.chdir(File.dirname(configurationFile)) do
     # go to root folder

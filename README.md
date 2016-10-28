@@ -52,19 +52,20 @@ A set of **rules** is executed once for each folder present in a **root** folder
 
 Here is the structure of the main config file. The **arguments** value is plugin-specific.
 ```yaml
-root: ../../clients
-folders: ^(?!model client$).* # match all folders except the one nammed 'model client'
-rules:
-    - plugin: pluginName
-      arguments: arguments
-    - plugin: pluginName
-      arguments: arguments
----
-root: /var/curriculums
-folders: ^(?!model client$).* # match all folders except the one nammed 'model client'
-rules:
-    plugin: pluginName
-    arguments: arguments
+  -
+    root: ../../clients
+    folders: ^(?!model client$).* # match all folders except the one nammed 'model client'
+    rules:
+        - plugin: pluginName
+          arguments: arguments
+        - plugin: pluginName
+          arguments: arguments
+  -
+    root: /var/curriculums
+    folders: ^(?!model client$).* # match all folders except the one nammed 'model client'
+    rules:
+        plugin: pluginName
+        arguments: arguments
 ```
 
 ## writing plugins
