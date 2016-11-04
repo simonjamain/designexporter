@@ -2,23 +2,27 @@
     root: '../../../Clients'
     folders: '^(?!ze client type$|Archives$).*'
     rules:
-        - plugin: fonts
-          arguments: '"Kit de communication"/"Charte graphique"/Polices'
+        # - plugin: fonts
+        #   arguments: '"Kit de communication"/Polices'
         - plugin: simplesvgexport
-          arguments: Graphisme/configuration.yml
+          arguments: Design/configuration.yml
         - plugin: multipage
-          arguments: Graphisme/configuration.yml
+          arguments: Design/configuration.yml
+        - plugin: subsvgexport
+          arguments: Design/configuration.yml
         - plugin: businessCard
-          arguments: Graphisme/"Carte de visite"/identities.csv Graphisme/"Carte de visite"/Sources "Kit de communication"/Polices Graphisme/"Carte de visite"/"Fichiers pour impression"
+          arguments: Design/"Carte de visite"/identities.csv Design/"Carte de visite"/Sources Design/"Carte de visite"/"Fichiers pour impression"
   -
-    root: '../../../Communication'
-    folders: '^Graphisme$'
+    root: '../../..'
+    folders: '^Communication$'
     rules:
-        - plugin: fonts
-          arguments: '"Kit de communication"/"Charte graphique"/Polices'
+        # - plugin: fonts
+        #   arguments: '"Kit de communication"/Polices'
         - plugin: simplesvgexport
-          arguments: Graphisme/configuration.yml
+          arguments: Design/configuration.yml
         - plugin: multipage
-          arguments: Graphisme/configuration.yml
+          arguments: Design/configuration.yml
+        - plugin: subsvgexport
+          arguments: Design/configuration.yml
         - plugin: businessCard
-          arguments: Graphisme/"Carte de visite"/identities.csv Graphisme/"Carte de visite"/Sources "Kit de communication"/Polices Graphisme/"Carte de visite"/"Fichiers pour impression"
+          arguments: Design/"Carte de visite"/identities.csv Design/"Carte de visite"/Sources Design/"Carte de visite"/"Fichiers pour impression"

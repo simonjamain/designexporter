@@ -1,2 +1,2 @@
 bash -c ./designexporter
-pause
+REM pause
